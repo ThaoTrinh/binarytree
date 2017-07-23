@@ -1,0 +1,78 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "0.1.0",
+	"isShellCommand": true,
+	"options": {
+		"cwd": "${workspaceRoot}/build"
+	},
+	"showOutput": "always",
+	"echoCommand": false,
+	"tasks": [
+		{
+			"taskName": "build",
+			"command": "mingw32-make",
+			"isBuildCommand": true
+		},
+		{
+			"taskName": "build_to_file",
+			"command": "mingw32-make",
+			"args": [
+				">",
+				"\"Build Log.txt\"",
+				"2>&1"
+			]
+		},
+		{
+			"taskName": "clean",
+			"command": "mingw32-make",
+			"args": [
+				"clean"
+			]
+		},
+		{
+			"taskName": "TEST_DEBUG",
+			"command": "cmake",
+			"args": [
+				"..",
+				"-G",
+				"\"MinGW Makefiles\"",
+				"-DCMAKE_BUILD_TYPE=Debug",
+				"-DTEST=ON"
+			]
+		},
+		{
+			"taskName": "TEST_RELEASE",
+			"command": "cmake",
+			"args": [
+				"..",
+				"-G",
+				"\"MinGW Makefiles\"",
+				"-DCMAKE_BUILD_TYPE=Release",
+				"-DTEST=ON"
+			]
+		},
+		{
+			"taskName": "NORMAL_DEBUG",
+			"command": "cmake",
+			"args": [
+				"..",
+				"-G",
+				"\"MinGW Makefiles\"",
+				"-DCMAKE_BUILD_TYPE=Debug",
+				"-DTEST=OFF"
+			]
+		},
+		{
+			"taskName": "NORMAL_RELEASE",
+			"command": "cmake",
+			"args": [
+				"..",
+				"-G",
+				"\"MinGW Makefiles\"",
+				"-DCMAKE_BUILD_TYPE=Release",
+				"-DTEST=OFF"
+			]
+		}
+	]
+}
