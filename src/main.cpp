@@ -38,13 +38,14 @@ int main(int argc, char** argv) {
                   cout << VERSION_MAJOR << ".";
                   cout << VERSION_MINOR << ".";
                   cout << VERSION_FIX << endl;
-                  cout << "Created by luibo" << endl;
+                  cout << "Created by Thao" << endl;
                   return 1;
             }
       }
       clearscreen();
 
       // code of program
+      cout << "Thao de thuong" << endl;
 
       return 0;
 #else
